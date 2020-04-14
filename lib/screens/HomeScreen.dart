@@ -1,3 +1,4 @@
+import 'package:covid19guide/screens/MainScreen.dart';
 import 'package:covid19guide/utils/appStyles.dart';
 import 'package:covid19guide/utils/strings.dart';
 import 'package:covid19guide/utils/textStyles.dart';
@@ -54,9 +55,14 @@ class Home extends StatelessWidget {
                       color: AppStyles.main_background,
                       borderRadius: BorderRadius.all(Radius.circular(6))
                     ),
-                    child: IconButton(
-                      onPressed: null,
-                      icon: Icon(Icons.arrow_forward,color: Colors.white,),
+                    child: InkWell(
+                      onTap: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => MainScreen()));
+                      },
+                      child: IconButton(
+                        onPressed: null,
+                        icon: Icon(Icons.arrow_forward,color: Colors.white,),
+                      ),
                     ),
                   ),
                 ),
