@@ -42,13 +42,20 @@ class Home extends StatelessWidget {
                 margin: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  borderRadius: BorderRadius.all(Radius.circular(6)),
+                  boxShadow: [
+                    new BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 5.0,
+                      spreadRadius: 3.0,
+                    ),
+                  ],
                 ),
                 child: ListTile(
-                  contentPadding: EdgeInsets.only(left: 10, right: 8),
+                  contentPadding: EdgeInsets.only(left: 10, right: 5),
                   title: Text(
                     "Get Started",
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.black87, fontSize: 18, fontWeight: FontWeight.w700),
                   ),
                   trailing: Container(
                     decoration: BoxDecoration(
