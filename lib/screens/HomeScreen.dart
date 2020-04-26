@@ -14,7 +14,7 @@ class Home extends StatelessWidget {
           Column(
             children: <Widget>[
               Container(
-                height: 300,
+                height: MediaQuery.of(context).size.height * 0.5,
                 margin: EdgeInsets.only(top: 50),
                 child: Image.asset(
                   "images/first.png",
@@ -39,7 +39,7 @@ class Home extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 40, horizontal: 30),
+                margin: EdgeInsets.symmetric(vertical: 28, horizontal: 30),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(6)),
@@ -58,6 +58,7 @@ class Home extends StatelessWidget {
                     style: TextStyle(color: Colors.black87, fontSize: 18, fontWeight: FontWeight.w700),
                   ),
                   trailing: Container(
+//                    height: MediaQuery.of(context).size.height,
                     decoration: BoxDecoration(
                       color: AppStyles.main_background,
                       borderRadius: BorderRadius.all(Radius.circular(6))

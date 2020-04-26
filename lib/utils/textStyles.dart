@@ -18,5 +18,22 @@ class AppTextStyles {
       fontWeight: FontWeight.w900,
       letterSpacing: 1);
 
+  static final TextStyle topTextStyle = TextStyle(
+      color: Colors.white,
+      fontSize: 20,
+      fontWeight: FontWeight.w400,
+      fontFamily: "Ubuntu");
+
+  static final TextStyle headingTextStyle = TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: Colors.black45);
+
+
+  static final kTitleTextstyle = TextStyle(
+    fontSize: 18,
+    color: AppStyles.text_color,
+    fontWeight: FontWeight.bold,
+  );
+
   static final TextStyle descStyle = TextStyle(color: Colors.white, fontSize: 16, wordSpacing: 1,fontFamily: "Ubuntu");
+
+  static final TextStyle moreDescStyle = TextStyle(color: Colors.black87, fontSize: 16, wordSpacing: 1,fontFamily: "Ubuntu",height: 1.3);
 }
