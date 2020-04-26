@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
               ),
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                 child: Align(
                   alignment: Alignment.center,
                   child: RichText(
@@ -60,8 +60,8 @@ class Home extends StatelessWidget {
                   trailing: Container(
 //                    height: MediaQuery.of(context).size.height,
                     decoration: BoxDecoration(
-                      color: AppStyles.main_background,
-                      borderRadius: BorderRadius.all(Radius.circular(6))
+                        color: AppStyles.main_background,
+                        borderRadius: BorderRadius.all(Radius.circular(6))
                     ),
                     child: InkWell(
                       onTap: (){
@@ -82,3 +82,4 @@ class Home extends StatelessWidget {
     );
   }
 }
+

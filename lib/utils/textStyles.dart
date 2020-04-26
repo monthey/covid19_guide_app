@@ -35,5 +35,5 @@ class AppTextStyles {
 
   static final TextStyle descStyle = TextStyle(color: Colors.white, fontSize: 16, wordSpacing: 1,fontFamily: "Ubuntu");
 
-  static final TextStyle moreDescStyle = TextStyle(color: Colors.black87, fontSize: 16, wordSpacing: 1,fontFamily: "Ubuntu",height: 1.3);
+  static final TextStyle moreDescStyle = TextStyle(color: Colors.black87, fontSize: 16, wordSpacing: 1,fontFamily: "Ubuntu",height: 1.5);
 }
