@@ -1,10 +1,22 @@
 # Corona Virus Guide App
+educates users about the virus, preventive measures, symptoms. Includes Covid-19 tracker to tack infected, recovered and death cases.
 
-- covid19 Guide
+*This project is built in Flutter.
 
-A simple application built to educate and guide users through the global Corona Virus outbreak.
 
-## Getting Started
-THis application educates users on what the virus is, some preventive measures, symptons, treatment, global chart of the virus and how it spreads. 
+-Intro Screen
+----------------------
+<img src="https://github.com/monthey/covid19_guide_app/blob/master/images/start.jpg" width="250">
 
-This project is built in Flutter.
+-Main Screen
+----------------------
+<img src="https://github.com/monthey/covid19_guide_app/blob/master/images/main.jpg" width="250">
+
+-Info Screen
+----------------------
+<img src="https://github.com/monthey/covid19_guide_app/blob/master/images/info.jpg" width="250">
+
+-Tracker Screen
+----------------------
+<img src="https://github.com/monthey/covid19_guide_app/blob/master/images/track.jpg" width="250">
+
