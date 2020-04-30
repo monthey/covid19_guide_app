@@ -1,5 +1,10 @@
+import 'dart:async';
+
 import 'package:covid19guide/screens/HomeScreen.dart';
 import 'package:covid19guide/screens/MainScreen.dart';
+import 'package:covid19guide/utils/appStyles.dart';
+import 'package:covid19guide/utils/strings.dart';
+import 'package:covid19guide/utils/textStyles.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -32,7 +37,9 @@ class SplashState extends State<Splash> {
 
   void initState() {
     super.initState();
-    getSaveData();
+    new Timer(new Duration(milliseconds: 500), (){
+      getSaveData();
+    });
   }
 
   Future<bool> getSaveData() async {
@@ -54,11 +61,25 @@ class SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      backgroundColor: AppStyles.main_background,
       body: new Center(
         child: new Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            new Text('Loading...'),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.3,
+              margin: EdgeInsets.only(bottom: 50),
+              child: Image.asset(
+                "images/covid-virus.png",
+//                width: 100,
+//                height: 100,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Text(
+              AppStrings.APP_TITLE,
+              style: AppTextStyles.firstHeadingStyle,
+            ),
           ],
         ),
       ),

@@ -12,6 +12,7 @@ import 'package:flutter_svg/svg.dart';
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: AppStyles.second_background,
       body: SingleChildScrollView(
@@ -21,7 +22,7 @@ class MainScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               ClipPath(
-                clipper: MyCliper(),
+                clipper: MyClipper(),
                 child: Container(
                   padding:
                       EdgeInsets.only(top: 40, left: 27, right: 20, bottom: 0),
@@ -80,24 +81,23 @@ class MainScreen extends StatelessWidget {
               SizedBox(
                 height: 8,
               ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    symptomsContainer("images/fever.png", "Fever"),
-                    symptomsContainer("images/cough.png", "Cough"),
-                    symptomsContainer("images/sick.png", "Cold"),
-                    SizedBox(
-                      width: 5,
-                    )
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  symptomsContainer("images/fever.png", "Fever", context),
+                  symptomsContainer("images/cough.png", "Cough", context),
+                  symptomsContainer("images/sick.png", "Cold", context),
+                  SizedBox(
+                    width: 5,
+                  )
+                ],
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                 padding: EdgeInsets.all(16),
+                width: width,
+                height: 130,
                 decoration: BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage("images/virus.png"),
@@ -140,10 +140,8 @@ class MainScreen extends StatelessWidget {
                       ],
                     ),
                     Flexible(
-                      child: Image.asset(
-                        "images/home.png",
-                        width: MediaQuery.of(context).size.width * 0.5,
-                      ),
+                      child: Image.asset("images/home.png",
+                          width: width * 0.4, fit: BoxFit.cover),
                     ),
                   ],
                 ),
@@ -193,7 +191,6 @@ class MainScreen extends StatelessWidget {
                       ),
                     ],
                   )),
-
               Align(
                   alignment: Alignment.bottomLeft,
                   child: Padding(
@@ -204,7 +201,9 @@ class MainScreen extends StatelessWidget {
                     ),
                   )),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+                width: width,
+                height: 120,
+                margin: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                 padding: EdgeInsets.all(16),
                 decoration: BoxDecoration(
                     image: DecorationImage(
@@ -221,6 +220,7 @@ class MainScreen extends StatelessWidget {
                       child: Image.asset(
                         "images/covid-virus.png",
                         width: MediaQuery.of(context).size.width * 0.3,
+                        fit: BoxFit.cover,
                       ),
                     ),
                     Column(
@@ -238,7 +238,9 @@ class MainScreen extends StatelessWidget {
                                 builder: (context) => TrackerScreen()));
                           },
                           child: Container(
-                            margin: EdgeInsets.only(top: 16),
+                            margin: EdgeInsets.only(
+                              top: 10,
+                            ),
                             padding: EdgeInsets.all(8),
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
@@ -250,12 +252,15 @@ class MainScreen extends StatelessWidget {
                                   fontWeight: FontWeight.w800),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ],
                 ),
               ),
+              SizedBox(
+                height: 6,
+              )
             ],
           ),
         ),
@@ -263,11 +268,13 @@ class MainScreen extends StatelessWidget {
     );
   }
 
-  Widget symptomsContainer(String imgPath, String imgTitle) {
+  Widget symptomsContainer(String imgPath, String imgTitle, context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return Container(
-        width: 100,
-        height: 120,
-        margin: EdgeInsets.only(left: 10, top: 10, bottom: 8),
+        width: width * 0.3,
+//        height: 140,
+        margin: EdgeInsets.only(left: 5, bottom: 8),
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
@@ -280,7 +287,11 @@ class MainScreen extends StatelessWidget {
             ]),
         child: Column(
           children: <Widget>[
-            Center(child: Image.asset(imgPath, fit: BoxFit.contain,)),
+            Center(
+                child: Image.asset(
+              imgPath,
+              fit: BoxFit.contain,
+            )),
             Text(
               imgTitle,
               style: TextStyle(

@@ -8,6 +8,8 @@
 .buildlog/
 .history
 .svn/
+/android/app/key.jks
+/android/key.properties
 
 # IntelliJ related
 *.iml
@@ -29,6 +31,8 @@
 .pub-cache/
 .pub/
 /build/
+/android/app/key.jks
+/android/key.properties
 
 # Web related
 lib/generated_plugin_registrant.dart

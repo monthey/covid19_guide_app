@@ -9,6 +9,8 @@ import 'package:flutter_svg/svg.dart';
 class InfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: AppStyles.second_background,
       body: SingleChildScrollView(
@@ -18,10 +20,10 @@ class InfoScreen extends StatelessWidget {
           child: Column(
             children: <Widget>[
               ClipPath(
-                clipper: MyCliper(),
+                clipper: MyClipper(),
                 child: Container(
                   padding:
-                      EdgeInsets.only(top: 40, left: 27, right: 20, bottom: 0),
+                      EdgeInsets.only(top: 40, left: 23, right: 10, bottom: 0),
                   height: 230,
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -42,19 +44,19 @@ class InfoScreen extends StatelessWidget {
                         children: <Widget>[
                           SvgPicture.asset(
                             "images/coronadr.svg",
-                            width: 230,
+                            width: width  * 0.5,
                             fit: BoxFit.fitWidth,
                             alignment: Alignment.topCenter,
                           ),
                           Positioned(
                               top: 25,
-                              left: 150,
+                              left: 130,
                               child: Text(
                                 AppStrings.INFO_IMG_TEXT,
                                 style: AppTextStyles.topTextStyle,
                               )),
                           Positioned(
-                              left: -10,
+                              left: -17,
                               child: IconButton(
                                 icon: Icon(
                                   Icons.arrow_back,
@@ -86,12 +88,18 @@ class InfoScreen extends StatelessWidget {
                 content: AppStrings.SIGNS_SYMP,
               ),
            Center(
-             child: Row(
-               children: <Widget>[
-                 symptomsContainer("images/fever.png", "Fever"),
-                 symptomsContainer("images/cough.png", "Cough"),
-                 symptomsContainer("images/tired.png", "Tiredness"),
-               ],
+             child: SingleChildScrollView(
+               scrollDirection: Axis.horizontal,
+               child: Row(
+                 children: <Widget>[
+                   symptomsContainer("images/fever.png", "Fever", context),
+                   symptomsContainer("images/cough.png", "Cough", context),
+                   symptomsContainer("images/tired.png", "Tiredness", context),
+                   symptomsContainer("images/breath.png", "Difficulty \n Breathing", context),
+                   symptomsContainer("images/headache.png", "Headache", context),
+                   SizedBox(width: 8,)
+                 ],
+               ),
              ),
            ),
               Padding(
@@ -143,6 +151,12 @@ class InfoScreen extends StatelessWidget {
                         "Avoid handshakes, high-five, body contacts and contact with others surfaces.",
                       ),
                       PreventionCard(
+                        imgPath: "images/hand-wash.png",
+                        imgTitle: "Sanitize Your Hands",
+                        desc:
+                        "Incase of no soap and water always use alcohol based handsanitizer anytime your touch anything.",
+                      ),
+                      PreventionCard(
                         imgPath: "images/home.png",
                         imgTitle: "Stay Home",
                         desc:
@@ -158,11 +172,12 @@ class InfoScreen extends StatelessWidget {
   }
 }
 
-Widget symptomsContainer(String imgPath, String imgTitle) {
+Widget symptomsContainer(String imgPath, String imgTitle, context) {
+  final width = MediaQuery.of(context).size.width;
   return Container(
-      width: 100,
-      height: 120,
-      margin: EdgeInsets.symmetric(horizontal: 10),
+      width: width / 3,
+//        height: 140,
+      margin: EdgeInsets.only(left: 8, bottom: 8,),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
@@ -175,19 +190,24 @@ Widget symptomsContainer(String imgPath, String imgTitle) {
           ]),
       child: Column(
         children: <Widget>[
-          Center(child: Image.asset(imgPath, fit: BoxFit.contain,)),
+          Center(
+              child: Image.asset(
+                imgPath,
+                fit: BoxFit.contain,
+              )),
           Text(
             imgTitle,
             style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontFamily: "Ubuntu",
                 fontSize: 16,
-                letterSpacing: 1),
+                letterSpacing: 1,
+            ),
+            textAlign: TextAlign.center,
           )
         ],
       ));
 }
-
 
 class InfoCard extends StatelessWidget {
   final String content;
